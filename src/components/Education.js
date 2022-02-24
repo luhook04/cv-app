@@ -5,18 +5,7 @@ class Education extends Component {
     super(props);
   }
 
-  render() {
-    return (
-      <div>
-        <input placeholder="School" />
-        <input placeholder="Degree" />
-        <input placeholder="Start Date" />
-        <input placeholder="Graduation Date" />
-        <button>Add</button>
-        <button>Delete</button>
-      </div>
-    );
-  }
+  render() {}
 }
 
 export default Education;
