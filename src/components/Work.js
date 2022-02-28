@@ -5,7 +5,9 @@ class Work extends Component {
     super(props);
   }
 
-  render() {}
+  render() {
+    return(<></>)
+  }
 }
 
 export default Work;

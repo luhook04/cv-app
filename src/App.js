@@ -24,13 +24,70 @@ class App extends Component {
         id : uniqid()
       }
     };
+
+    this.changePersonal = this.changePersonal.bind(this);
+    this.changeWork = this.changeWork.bind(this);
+    this.addWork = this.addWork.bind(this);
+    this.deleteWork = this.deleteWork.bind(this);
+    this.changeEducation = this.changeEducation.bind(this);
+    this.addEducation = this.addEducation.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
   }
+
+  changePersonal(e) {
+    const { name, value } = e.target;
+    this.setState({
+      personal : {
+        ...this.state.personal,
+        [name] : value
+      }
+    });
+  }
+
+  changeWork(e, id) {
+    const { name, value } = e.target;
+    const newWorkArray = this.state.workExperience.map((workItem) => {
+      if (workItem.id === id) {
+        return {
+          ...workItem,
+          [name] : value
+        };
+      }
+      return workItem;
+    });
+    this.setState({
+      workExperience : newWorkArray
+    });
+  }
+
+  changeEducation(e, id) {
+    const { name, value } = e.target;
+    const newEducationArray = this.state.education.map((educationItem) => {
+      if (educationItem.id === id) {
+        return {
+          ...educationItem,
+          [name] : value
+        };
+      }
+      return educationItem;
+    });
+    this.setState({
+      education : newEducationArray
+    });
+  }
+
+  addWork(e) {}
+
+  addEducation(e) {}
+
+  deleteWork(id) {}
+
+  deleteEducation(id) {}
 
   render() {
     return (
       <div>
         <Form />
-        <Overview />
       </div>
     );
   }

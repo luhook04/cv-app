@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PersonalBlock from "./PersonalBlock";
 
 class Overview extends Component {
   constructor(props) {
@@ -7,7 +6,7 @@ class Overview extends Component {
   }
 
   render() {
-    return <PersonalBlock />;
+    return <div />;
   }
 }
 

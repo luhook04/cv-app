@@ -2,10 +2,14 @@ import React, { Component } from "react";
 
 class Education extends Component {
   constructor(props) {
-    super(props);
+		super(props);
+		
+
   }
 
-  render() {}
+	render() {
+		return(<></>)
+	}
 }
 
 export default Education;
