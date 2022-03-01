@@ -7,13 +7,35 @@ class Form extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
+    const {
+      personal,
+      education,
+      workExperience,
+      changePersonal,
+      changeEducation,
+      changeWork,
+      addEducation,
+      addWork,
+      deleteEducation,
+      deleteWork
+    } = this.props;
+
     return (
       <div>
-        <Personal />
-        <Work />
-        <Education />
+        <Personal personal={personal} changePersonal={changePersonal} />
+        <Work
+          workExperience={workExperience}
+          changeWork={changeWork}
+          addWork={addWork}
+          deleteWork={deleteWork}
+        />
+        <Education
+          education={education}
+          changeEducation={changeEducation}
+          addEducation={addEducation}
+          deleteEducation={deleteEducation}
+        />
       </div>
     );
   }

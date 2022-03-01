@@ -127,7 +127,6 @@ class App extends Component {
           addWork={this.addWork}
           deleteEducation={this.deleteEducation}
           deleteWork={this.deleteWork}
-          //add commit
         />
       </div>
     );
