@@ -20,6 +20,18 @@ class Work extends Component {
         />
       );
     });
+
+    return (
+      <div className="workExperience">
+        <h2>Work Experience</h2>
+        {workExperience.length === 0 ? (
+          <div className="buttons">
+            <button className="btn add-btn">Add</button>
+          </div>
+        ) : null}
+        {workExperiences}
+      </div>
+    );
   }
 }
 
