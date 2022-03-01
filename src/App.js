@@ -92,11 +92,18 @@ class App extends Component {
       id : uniqid()
     };
     this.setState({
-      workExperience : this.state.education.concat(newEducationObj)
+      education : this.state.education.concat(newEducationObj)
     });
   }
 
-  deleteWork(id) {}
+  deleteWork(id) {
+    const filteredWork = this.state.workExperience.filter(
+      (workObj) => workObj.id !== id
+    );
+    this.setState({
+      workExperience : filteredWork
+    });
+  }
 
   deleteEducation(id) {}
 
