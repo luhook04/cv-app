@@ -6,7 +6,7 @@ class Work extends Component {
   }
 
   render() {
-    return(<></>)
+    const { workExperience, changeWork, addWork, deleteWork } = this.props;
   }
 }
 
