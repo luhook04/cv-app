@@ -1,7 +1,6 @@
 import uniqid from "uniqid";
 import React, { Component } from "react";
 import Form from "./components/Form";
-import Overview from "./components/Overview";
 import {
   emptyEducation,
   emptyPersonal,
@@ -117,7 +116,19 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Form />
+        <Form
+          personal={this.state.personal}
+          education={this.state.education}
+          workExperience={this.state.workExperience}
+          changePersonal={this.changePersonal}
+          changeEducation={this.changeEducation}
+          changeWork={this.changeWork}
+          addEducation={this.addEducation}
+          addWork={this.addWork}
+          deleteEducation={this.deleteEducation}
+          deleteWork={this.deleteWork}
+          //add commit
+        />
       </div>
     );
   }
