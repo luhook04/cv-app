@@ -78,7 +78,7 @@ class App extends Component {
 
   addWork() {
     const newWorkObj = {
-      ...emptyEducation,
+      ...emptyWork,
       id : uniqid()
     };
     this.setState({
@@ -86,7 +86,15 @@ class App extends Component {
     });
   }
 
-  addEducation() {}
+  addEducation() {
+    const newEducationObj = {
+      ...emptyEducation,
+      id : uniqid()
+    };
+    this.setState({
+      workExperience : this.state.education.concat(newEducationObj)
+    });
+  }
 
   deleteWork(id) {}
 
