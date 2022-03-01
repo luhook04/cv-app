@@ -105,7 +105,14 @@ class App extends Component {
     });
   }
 
-  deleteEducation(id) {}
+  deleteEducation(id) {
+    const filteredEdu = this.state.education.filter(
+      (educationObj) => educationObj.id !== id
+    );
+    this.setState({
+      education : filteredEdu
+    });
+  }
 
   render() {
     return (
