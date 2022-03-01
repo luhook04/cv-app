@@ -76,9 +76,17 @@ class App extends Component {
     });
   }
 
-  addWork(e) {}
+  addWork() {
+    const newWorkObj = {
+      ...emptyEducation,
+      id : uniqid()
+    };
+    this.setState({
+      workExperience : this.state.workExperience.concat(newWorkObj)
+    });
+  }
 
-  addEducation(e) {}
+  addEducation() {}
 
   deleteWork(id) {}
 
