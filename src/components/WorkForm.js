@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 
 class WorkForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
+    const {
+      workExperience,
+      changeWork,
+      addWork,
+      deleteWork,
+      isLast,
+      id
+    } = this.props;
+
     return (
       <div>
         <div className="input-field">
@@ -14,6 +19,8 @@ class WorkForm extends Component {
             name="position"
             className="text-input"
             placeholder="Position"
+            value={workExperience.position}
+            onChange={(e) => changeWork(e, id)}
           />
         </div>
         <div className="input-field">
@@ -22,6 +29,7 @@ class WorkForm extends Component {
             name="company"
             className="text-input"
             placeholder="Company"
+            value={workExperience.company}
           />
         </div>
         <div className="input-field">
@@ -30,6 +38,7 @@ class WorkForm extends Component {
             name="location"
             className="text-input"
             placeholder="Location"
+            value={workExperience.location}
           />
         </div>
         <div className="input-field">
@@ -38,6 +47,7 @@ class WorkForm extends Component {
             name="starDate"
             className="text-input"
             placeholder="Start date"
+            value={workExperience.startDate}
           />
         </div>
         <div className="input-field">
@@ -46,6 +56,7 @@ class WorkForm extends Component {
             name="endDate"
             className="text-input"
             placeholder="End date"
+            value={workExperience.endDate}
           />
         </div>
         <div>

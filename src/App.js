@@ -14,14 +14,18 @@ class App extends Component {
       personal       : {
         ...emptyPersonal
       },
-      workExperience : {
-        ...emptyWork,
-        id : uniqid()
-      },
-      education      : {
-        ...emptyEducation,
-        id : uniqid()
-      }
+      workExperience : [
+        {
+          ...emptyWork,
+          id : uniqid()
+        }
+      ],
+      education      : [
+        {
+          ...emptyEducation,
+          id : uniqid()
+        }
+      ]
     };
 
     this.changePersonal = this.changePersonal.bind(this);

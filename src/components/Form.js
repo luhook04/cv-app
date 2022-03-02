@@ -4,9 +4,6 @@ import Education from "./Education";
 import Personal from "./Personal";
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {
       personal,
