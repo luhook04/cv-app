@@ -4,6 +4,7 @@ import WorkForm from "./WorkForm";
 class Work extends Component {
   render() {
     const { workExperience, changeWork, addWork, deleteWork } = this.props;
+
     const workExperiences = workExperience.map((object, index) => {
       return (
         <WorkForm
