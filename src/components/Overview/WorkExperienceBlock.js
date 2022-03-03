@@ -12,7 +12,7 @@ class WorkExperienceBlock extends Component {
           <div className="right-work">
             <p>{workExperience.company.trim()}</p>
             <p>
-              {workExperience.startDate.trim()}-{workExperience.endDate}
+              {workExperience.startDate.trim()}-{workExperience.endDate.trim()}
             </p>
           </div>
         </div>
