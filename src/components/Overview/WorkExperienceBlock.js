@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class WorkExperienceBlock extends Component {
-  render() {}
+  render() {
+    return <div />;
+  }
 }
 
 export default WorkExperienceBlock;

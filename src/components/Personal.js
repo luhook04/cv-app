@@ -39,16 +39,6 @@ class Personal extends Component {
         <div>
           <input
             type="text"
-            name="address"
-            placeholder="Address"
-            className="text-input"
-            value={personal.address}
-            onChange={changePersonal}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
             name="phoneNum"
             placeholder="Phone #"
             className="text-input"
@@ -63,6 +53,16 @@ class Personal extends Component {
             placeholder="Email"
             className="text-input"
             value={personal.email}
+            onChange={changePersonal}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            className="text-input"
+            value={personal.address}
             onChange={changePersonal}
           />
         </div>
