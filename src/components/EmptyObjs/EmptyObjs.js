@@ -9,16 +9,15 @@ const emptyPersonal = {
 };
 
 const emptyWork = {
-  position  : "",
-  company   : "",
-  location  : "",
-  startDate : "",
-  endDate   : ""
+  position    : "",
+  company     : "",
+  startDate   : "",
+  endDate     : "",
+  description : ""
 };
 
 const emptyEducation = {
   school         : "",
-  location       : "",
   degree         : "",
   startDate      : "",
   graduationDate : ""

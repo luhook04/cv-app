@@ -36,17 +36,7 @@ class WorkForm extends Component {
         <div className="input-field">
           <input
             type="text"
-            name="location"
-            className="text-input"
-            placeholder="Location"
-            value={workExperience.location}
-            onChange={(e) => changeWork(e, id)}
-          />
-        </div>
-        <div className="input-field">
-          <input
-            type="text"
-            name="starDate"
+            name="startDate"
             className="text-input"
             placeholder="Start date"
             value={workExperience.startDate}
@@ -60,6 +50,16 @@ class WorkForm extends Component {
             className="text-input"
             placeholder="End date"
             value={workExperience.endDate}
+            onChange={(e) => changeWork(e, id)}
+          />
+        </div>
+        <div className="input-field">
+          <input
+            type="text"
+            name="description"
+            className="text-input"
+            placeholder="Brief description"
+            value={workExperience.description}
             onChange={(e) => changeWork(e, id)}
           />
         </div>

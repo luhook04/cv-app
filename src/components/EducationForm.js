@@ -26,16 +26,6 @@ class EducationForm extends Component {
         <div className="input-field">
           <input
             type="text"
-            placeholder="Location"
-            name="location"
-            className="text-input"
-            value={education.location}
-            onChange={(e) => changeEducation(e, id)}
-          />
-        </div>
-        <div className="input-field">
-          <input
-            type="text"
             placeholder="Degree"
             name="degree"
             className="text-input"

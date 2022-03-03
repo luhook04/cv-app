@@ -21,12 +21,12 @@ class Overview extends Component {
             <p className="description">{personal.description.trim()}</p>
           </section>
           <section className="overview-section">
-            <h3>Education</h3>
-            {educationBlocks}
-          </section>
-          <section className="overview-section">
             <h3>Work Experience</h3>
             {workExperienceBlocks}
+          </section>
+          <section className="overview-section">
+            <h3>Education</h3>
+            {educationBlocks}
           </section>
         </div>
       </div>
