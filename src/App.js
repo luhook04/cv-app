@@ -6,6 +6,7 @@ import {
   emptyPersonal,
   emptyWork
 } from "./components/EmptyObjs/EmptyObjs";
+import Overview from "./components/Overview/Overview";
 
 class App extends Component {
   constructor(props) {
@@ -120,18 +121,27 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Form
-          personal={this.state.personal}
-          education={this.state.education}
-          workExperience={this.state.workExperience}
-          changePersonal={this.changePersonal}
-          changeEducation={this.changeEducation}
-          changeWork={this.changeWork}
-          addEducation={this.addEducation}
-          addWork={this.addWork}
-          deleteEducation={this.deleteEducation}
-          deleteWork={this.deleteWork}
-        />
+        <div>
+          <Form
+            personal={this.state.personal}
+            education={this.state.education}
+            workExperience={this.state.workExperience}
+            changePersonal={this.changePersonal}
+            changeEducation={this.changeEducation}
+            changeWork={this.changeWork}
+            addEducation={this.addEducation}
+            addWork={this.addWork}
+            deleteEducation={this.deleteEducation}
+            deleteWork={this.deleteWork}
+          />
+        </div>
+        <div>
+          <Overview
+            personal={this.state.personal}
+            education={this.state.education}
+            workExperience={this.state.workExperience}
+          />
+        </div>
       </div>
     );
   }
