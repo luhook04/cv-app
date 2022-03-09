@@ -24,7 +24,7 @@ class Work extends Component {
         <h2>Work Experience</h2>
         {workExperience.length === 0 ? (
           <div className="buttons">
-            <button className="btn add-btn" onClick={addWork}>
+            <button className="btn-add" onClick={addWork}>
               Add
             </button>
           </div>

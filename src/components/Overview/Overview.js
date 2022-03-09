@@ -17,7 +17,6 @@ class Overview extends Component {
         <PersonalHeading personal={personal} />
         <div className="overview-body">
           <section className="overview-section">
-            <h3>Description</h3>
             <p className="description">{personal.description.trim()}</p>
           </section>
           <section className="overview-section">

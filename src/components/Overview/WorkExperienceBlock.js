@@ -5,13 +5,13 @@ class WorkExperienceBlock extends Component {
     const { workExperience } = this.props;
     return (
       <div className="work-container">
-        <div>
+        <div className="work-flex">
           <div className="left-work">
             <p>{workExperience.position.trim()}</p>
           </div>
           <div className="right-work">
-            <p>{workExperience.company.trim()}</p>
             <p>
+              {workExperience.company.trim()}&nbsp;|&nbsp;
               {workExperience.startDate.trim()}-{workExperience.endDate.trim()}
             </p>
           </div>

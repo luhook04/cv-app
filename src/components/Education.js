@@ -29,7 +29,7 @@ class Education extends Component {
         <h2>Education</h2>
         {education.length === 0 ? (
           <div className="buttons">
-            <button className="btn add-btn" onClick={addEducation}>
+            <button className="btn-add" onClick={addEducation}>
               Add
             </button>
           </div>

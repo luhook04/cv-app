@@ -64,8 +64,14 @@ class WorkForm extends Component {
           />
         </div>
         <div className="buttons">
-          {isLast ? <button onClick={addWork}>Add</button> : null}
-          <button onClick={() => deleteWork(id)}>Delete</button>
+          {isLast ? (
+            <button className="btn-add" onClick={addWork}>
+              Add
+            </button>
+          ) : null}
+          <button className="btn-del" onClick={() => deleteWork(id)}>
+            Delete
+          </button>
         </div>
       </div>
     );

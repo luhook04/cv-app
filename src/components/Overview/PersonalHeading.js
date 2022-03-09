@@ -10,7 +10,7 @@ class PersonalHeading extends Component {
   render() {
     const { personal } = this.props;
     return (
-      <div>
+      <div className="header-container">
         <div className="header-left">
           <h2 className="name">
             {personal.firstName.trim()} {personal.lastName.trim()}

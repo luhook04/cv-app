@@ -6,6 +6,8 @@ class Personal extends Component {
 
     return (
       <section className="personal-info">
+        <h2>Personal Information</h2>
+
         <div className="input-field">
           <input
             type="text"
@@ -16,7 +18,7 @@ class Personal extends Component {
             onChange={changePersonal}
           />
         </div>
-        <div>
+        <div className="input-field">
           <input
             type="text"
             name="lastName"
@@ -26,7 +28,7 @@ class Personal extends Component {
             onChange={changePersonal}
           />
         </div>
-        <div>
+        <div className="input-field">
           <input
             type="text"
             name="jobTitle"
@@ -36,7 +38,7 @@ class Personal extends Component {
             onChange={changePersonal}
           />
         </div>
-        <div>
+        <div className="input-field">
           <input
             type="text"
             name="phoneNum"
@@ -46,7 +48,7 @@ class Personal extends Component {
             onChange={changePersonal}
           />
         </div>
-        <div>
+        <div className="input-field">
           <input
             type="text"
             name="email"
@@ -56,7 +58,7 @@ class Personal extends Component {
             onChange={changePersonal}
           />
         </div>
-        <div>
+        <div className="input-field">
           <input
             type="text"
             name="address"
@@ -66,7 +68,7 @@ class Personal extends Component {
             onChange={changePersonal}
           />
         </div>
-        <div>
+        <div className="input-field">
           <textarea
             name="description"
             placeholder="Describe yourself"

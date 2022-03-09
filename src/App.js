@@ -7,6 +7,7 @@ import {
   emptyWork
 } from "./components/EmptyObjs/EmptyObjs";
 import Overview from "./components/Overview/Overview";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -120,8 +121,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="app-container">
+        <div className="form-container">
           <Form
             personal={this.state.personal}
             education={this.state.education}
@@ -135,7 +136,7 @@ class App extends Component {
             deleteWork={this.deleteWork}
           />
         </div>
-        <div>
+        <div className="overview-container">
           <Overview
             personal={this.state.personal}
             education={this.state.education}

@@ -54,8 +54,14 @@ class EducationForm extends Component {
           />
         </div>
         <div className="buttons">
-          {isLast ? <button onClick={addEducation}>Add</button> : null}
-          <button onClick={() => deleteEducation(id)}>Delete</button>
+          {isLast ? (
+            <button className="btn-add" onClick={addEducation}>
+              Add
+            </button>
+          ) : null}
+          <button className="btn-del" onClick={() => deleteEducation(id)}>
+            Delete
+          </button>
         </div>
       </div>
     );
