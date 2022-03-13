@@ -1,5 +1,5 @@
 import uniqid from "uniqid";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Form from "./components/Form";
 import {
   emptyEducation,
@@ -9,143 +9,124 @@ import {
 import Overview from "./components/Overview/Overview";
 import "./App.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      personal       : {
-        ...emptyPersonal
-      },
+const App = () => {
+  const [ personal, setPersonal ] = useState(emptyPersonal);
+  const [ workExperience, setWorkExperience ] = useState([
+    { emptyWork, id: uniqid() }
+  ]);
+  const [ education, setEducation ] = useState([
+    { emptyEducation, id: uniqid() }
+  ]);
+
+  const changePersonal = (e) => {
+    const { name, value } = e.target;
+    setPersonal((prevState) => ({
+      personal : {
+        ...prevState,
+        [name] : value
+      }
+    }));
+  };
+
+  const changeWork = (e, id) => {
+    const { name, value } = e.target;
+    setWorkExperience((prevState) => {
+      const newWorkArray = prevState.map((workItem) => {
+        if (workItem.id === id) {
+          return {
+            ...workItem,
+            [name] : value
+          };
+        }
+        return workItem;
+      });
+      return { workExperience: [ ...newWorkArray ] };
+    });
+  };
+
+  const changeEducation = (e, id) => {
+    const { name, value } = e.target;
+    setEducation((prevState) => {
+      const newEducationArray = prevState.map((educationItem) => {
+        if (educationItem.id === id) {
+          return {
+            ...educationItem,
+            [name] : value
+          };
+        }
+        return educationItem;
+      });
+      return { education: [ ...newEducationArray ] };
+    });
+  };
+
+  const addWork = () => {
+    setWorkExperience((prevState) => ({
       workExperience : [
+        ...prevState,
         {
           ...emptyWork,
           id : uniqid()
         }
-      ],
-      education      : [
+      ]
+    }));
+  };
+
+  const addEducation = () => {
+    setEducation((prevState) => ({
+      education : [
+        ...prevState,
         {
           ...emptyEducation,
           id : uniqid()
         }
       ]
-    };
+    }));
+  };
 
-    this.changePersonal = this.changePersonal.bind(this);
-    this.changeWork = this.changeWork.bind(this);
-    this.addWork = this.addWork.bind(this);
-    this.deleteWork = this.deleteWork.bind(this);
-    this.changeEducation = this.changeEducation.bind(this);
-    this.addEducation = this.addEducation.bind(this);
-    this.deleteEducation = this.deleteEducation.bind(this);
-  }
+  const deleteWork = (id) => {
+    setWorkExperience((prevState) => {
+      const filteredWork = prevState.filter(
+        (workItem) => workItem.id !== id
+      );
+      return { workExperience: [ ...filteredWork ] };
+    });
+  };
 
-  changePersonal(e) {
-    const { name, value } = e.target;
-    this.setState({
-      personal : {
-        ...this.state.personal,
-        [name] : value
-      }
+  const deleteEducation = (id) => {
+    setEducation((prevState) => {
+      const filteredEdu = prevState.filter(
+        (educationItem) => educationItem.id !== id
+      );
+      return { education: [ ...filteredEdu ] };
     });
-  }
+  };
 
-  changeWork(e, id) {
-    const { name, value } = e.target;
-    const newWorkArray = this.state.workExperience.map((workItem) => {
-      if (workItem.id === id) {
-        return {
-          ...workItem,
-          [name] : value
-        };
-      }
-      return workItem;
-    });
-    this.setState({
-      workExperience : newWorkArray
-    });
-  }
-
-  changeEducation(e, id) {
-    const { name, value } = e.target;
-    const newEducationArray = this.state.education.map((educationItem) => {
-      if (educationItem.id === id) {
-        return {
-          ...educationItem,
-          [name] : value
-        };
-      }
-      return educationItem;
-    });
-    this.setState({
-      education : newEducationArray
-    });
-  }
-
-  addWork() {
-    const newWorkObj = {
-      ...emptyWork,
-      id : uniqid()
-    };
-    this.setState({
-      workExperience : this.state.workExperience.concat(newWorkObj)
-    });
-  }
-
-  addEducation() {
-    const newEducationObj = {
-      ...emptyEducation,
-      id : uniqid()
-    };
-    this.setState({
-      education : this.state.education.concat(newEducationObj)
-    });
-  }
-
-  deleteWork(id) {
-    const filteredWork = this.state.workExperience.filter(
-      (workObj) => workObj.id !== id
-    );
-    this.setState({
-      workExperience : filteredWork
-    });
-  }
-
-  deleteEducation(id) {
-    const filteredEdu = this.state.education.filter(
-      (educationObj) => educationObj.id !== id
-    );
-    this.setState({
-      education : filteredEdu
-    });
-  }
-
-  render() {
-    return (
-      <div className="app-container">
-        <div className="form-container">
-          <Form
-            personal={this.state.personal}
-            education={this.state.education}
-            workExperience={this.state.workExperience}
-            changePersonal={this.changePersonal}
-            changeEducation={this.changeEducation}
-            changeWork={this.changeWork}
-            addEducation={this.addEducation}
-            addWork={this.addWork}
-            deleteEducation={this.deleteEducation}
-            deleteWork={this.deleteWork}
-          />
-        </div>
-        <div className="overview-container">
-          <Overview
-            personal={this.state.personal}
-            education={this.state.education}
-            workExperience={this.state.workExperience}
-          />
-        </div>
+  return (
+    <div className="app-container">
+      <div className="form-container">
+        <Form
+          personal={personal}
+          education={education}
+          workExperience={workExperience}
+          changePersonal={changePersonal}
+          changeEducation={changeEducation}
+          changeWork={changeWork}
+          addEducation={addEducation}
+          addWork={addWork}
+          deleteEducation={deleteEducation}
+          deleteWork={deleteWork}
+        />
       </div>
-    );
-  }
-}
+      <div className="overview-container">
+        <Overview
+          personal={personal}
+          education={education}
+          workExperience={workExperience}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default App;
