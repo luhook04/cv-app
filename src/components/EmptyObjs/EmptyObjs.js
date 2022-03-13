@@ -1,26 +1,34 @@
-const emptyPersonal = {
-  firstName   : "",
-  lastName    : "",
-  jobTitle    : "",
-  address     : "",
-  phoneNum    : "",
-  email       : "",
-  description : ""
+import uniqid from "uniqid";
+
+const emptyCv = {
+  personal       : {
+    firstName   : "",
+    lastName    : "",
+    jobTitle    : "",
+    address     : "",
+    phoneNum    : "",
+    email       : "",
+    description : ""
+  },
+  workExperience : [
+    {
+      position    : "",
+      company     : "",
+      startDate   : "",
+      endDate     : "",
+      description : "",
+      id          : uniqid()
+    }
+  ],
+  education      : [
+    {
+      school         : "",
+      degree         : "",
+      startDate      : "",
+      graduationDate : "",
+      id             : uniqid()
+    }
+  ]
 };
 
-const emptyWork = {
-  position    : "",
-  company     : "",
-  startDate   : "",
-  endDate     : "",
-  description : ""
-};
-
-const emptyEducation = {
-  school         : "",
-  degree         : "",
-  startDate      : "",
-  graduationDate : ""
-};
-
-export { emptyEducation, emptyPersonal, emptyWork };
+export { emptyCv };

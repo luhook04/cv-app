@@ -1,28 +1,19 @@
 import uniqid from "uniqid";
 import React, { useState } from "react";
 import Form from "./components/Form";
-import {
-  emptyEducation,
-  emptyPersonal,
-  emptyWork
-} from "./components/EmptyObjs/EmptyObjs";
+import { emptyCv } from "./components/EmptyObjs/EmptyObjs";
 import Overview from "./components/Overview/Overview";
 import "./App.css";
 
 const App = () => {
-  const [ personal, setPersonal ] = useState(emptyPersonal);
-  const [ workExperience, setWorkExperience ] = useState([
-    { emptyWork, id: uniqid() }
-  ]);
-  const [ education, setEducation ] = useState([
-    { emptyEducation, id: uniqid() }
-  ]);
+  const [ cv, setCv ] = useState(emptyCv);
 
   const changePersonal = (e) => {
     const { name, value } = e.target;
-    setPersonal((prevState) => ({
+    setCv((prevState) => ({
+      ...prevState,
       personal : {
-        ...prevState,
+        ...prevState.personal,
         [name] : value
       }
     }));
@@ -30,8 +21,8 @@ const App = () => {
 
   const changeWork = (e, id) => {
     const { name, value } = e.target;
-    setWorkExperience((prevState) => {
-      const newWorkArray = prevState.map((workItem) => {
+    setCv((prevState) => {
+      const newWorkArray = prevState.workExperience.map((workItem) => {
         if (workItem.id === id) {
           return {
             ...workItem,
@@ -40,65 +31,76 @@ const App = () => {
         }
         return workItem;
       });
-      return { workExperience: [ ...newWorkArray ] };
+      return { ...prevState, workExperience: [ ...newWorkArray ] };
     });
   };
 
   const changeEducation = (e, id) => {
     const { name, value } = e.target;
-    setEducation((prevState) => {
-      const newEducationArray = prevState.map((educationItem) => {
-        if (educationItem.id === id) {
-          return {
-            ...educationItem,
-            [name] : value
-          };
+    setCv((prevState) => {
+      const newEducationArray = prevState.education.map(
+        (educationItem) => {
+          if (educationItem.id === id) {
+            return {
+              ...educationItem,
+              [name] : value
+            };
+          }
+          return educationItem;
         }
-        return educationItem;
-      });
-      return { education: [ ...newEducationArray ] };
+      );
+      return { ...prevState, education: [ ...newEducationArray ] };
     });
   };
 
   const addWork = () => {
-    setWorkExperience((prevState) => ({
+    setCv((prevState) => ({
+      ...prevState,
       workExperience : [
-        ...prevState,
+        ...prevState.workExperience,
         {
-          ...emptyWork,
-          id : uniqid()
+          position    : "",
+          company     : "",
+          startDate   : "",
+          endDate     : "",
+          description : "",
+          id          : uniqid()
         }
       ]
     }));
   };
 
   const addEducation = () => {
-    setEducation((prevState) => ({
+    setCv((prevState) => ({
+      ...prevState,
       education : [
-        ...prevState,
+        ...prevState.education,
         {
-          ...emptyEducation,
-          id : uniqid()
+          school         : "",
+          degree         : "",
+          startDate      : "",
+          graduationDate : "",
+          id             : uniqid()
         }
       ]
     }));
   };
 
   const deleteWork = (id) => {
-    setWorkExperience((prevState) => {
-      const filteredWork = prevState.filter(
+    setCv((prevState) => {
+      const filteredWork = prevState.workExperience.filter(
         (workItem) => workItem.id !== id
       );
-      return { workExperience: [ ...filteredWork ] };
+      return { ...prevState, workExperience: [ ...filteredWork ] };
     });
   };
 
   const deleteEducation = (id) => {
-    setEducation((prevState) => {
-      const filteredEdu = prevState.filter(
+    setCv((prevState) => {
+      const filteredEdu = prevState.education.filter(
         (educationItem) => educationItem.id !== id
       );
-      return { education: [ ...filteredEdu ] };
+      return { ...prevState, education: [ ...filteredEdu ] };
     });
   };
 
@@ -106,9 +108,9 @@ const App = () => {
     <div className="app-container">
       <div className="form-container">
         <Form
-          personal={personal}
-          education={education}
-          workExperience={workExperience}
+          personal={cv.personal}
+          education={cv.education}
+          workExperience={cv.workExperience}
           changePersonal={changePersonal}
           changeEducation={changeEducation}
           changeWork={changeWork}
@@ -120,9 +122,9 @@ const App = () => {
       </div>
       <div className="overview-container">
         <Overview
-          personal={personal}
-          education={education}
-          workExperience={workExperience}
+          personal={cv.personal}
+          education={cv.education}
+          workExperience={cv.workExperience}
         />
       </div>
     </div>

@@ -1,22 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 
-class EducationBlock extends Component {
-  render() {
-    const { education } = this.props;
-    return (
-      <div className="education-container">
-        <div className="left-education">
-          <p>{education.degree.trim()}</p>
-        </div>
-        <div className="right-education">
-          <p>
-            {education.school.trim()}&nbsp;|&nbsp;
-            {education.startDate.trim()}-{education.graduationDate.trim()}
-          </p>
-        </div>
+const EducationBlock = ({ education }) => {
+  return (
+    <div className="education-container">
+      <div className="left-education">
+        <p>{education.degree.trim()}</p>
       </div>
-    );
-  }
-}
+      <div className="right-education">
+        <p>
+          {education.school.trim()}&nbsp;|&nbsp;
+          {education.startDate.trim()}-{education.graduationDate.trim()}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default EducationBlock;
